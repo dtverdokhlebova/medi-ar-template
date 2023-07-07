@@ -1,0 +1,34 @@
+.why-we {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px 20px;
+  @include media-laptop {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 20px;
+  }
+  @include media-tablet {
+    grid-template-columns: 1fr;
+  }
+  &__img {
+    position: relative;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    overflow: hidden;
+    @include media-laptop {
+      border-radius: 10px;
+    }
+    &::before  {
+      content: '';
+      display: block;
+      padding-top: 56.17%;
+    }
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}

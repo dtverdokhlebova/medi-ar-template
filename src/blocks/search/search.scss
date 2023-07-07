@@ -1,0 +1,10 @@
+.search {
+  display: flex;
+  &__ui-input {
+    flex: 1;
+  }
+  &__ui-button {
+    position: relative;
+    margin-left: -4px;
+  }
+}

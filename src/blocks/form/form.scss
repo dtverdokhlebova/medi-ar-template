@@ -1,0 +1,10 @@
+.form {
+  width: 100%;
+  max-width: 414px;
+  margin: 0 auto;
+  &__row {
+    &:not(:first-child) {
+      margin-top: 20px;
+    }
+  }
+}

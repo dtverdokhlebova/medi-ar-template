@@ -1,0 +1,19 @@
+mixin search(mods)
+  -
+    const baseName = 'search'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .search(class=allMods)&attributes(attributes)
+    +ui-input(`search`, 'Поиск по названию <span class="text-t-none">мероприятия</span>', 'search')(name='search')
+    +ui-button('', 'search, --py-xs, --l-px-xs, --bold')
+      .ui-button__icon
+        +ui-svg('icon_search')
+      .ui-button__text.text-m-none Найти
+    block

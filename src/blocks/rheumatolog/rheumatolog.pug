@@ -1,0 +1,18 @@
+mixin rheumatolog(mods)
+  -
+    const baseName = 'rheumatolog'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .rheumatolog(class=allMods)&attributes(attributes)
+    .rheumatolog__logo
+      img(src='../../images/rheumatolog_logo.png', alt='')
+    .rheumatolog__content
+      +ui-h3('Мы являемся ключевым партнером Ассоциации Ревматологов России', '--bold')
+    block

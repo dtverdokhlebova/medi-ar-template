@@ -1,0 +1,35 @@
+-
+  const headerMenu = [
+    { name: 'Главная', link: 'main.html' },
+    { name: 'О нас', link: '#' },
+    { name: 'Мероприятия', link: 'events.html' },
+    { name: 'Галерея', link: '#' },
+    { name: 'Контакты', link: '#' },
+  ]
+
+header.header
+  .inner
+    .header__wrapper
+      .header__burger-open
+        +ui-svg('icon_burger_start')
+      a.header__logo(href='/')
+        img(src='../../images/icon_logo_blue.png', alt='')
+      .header__burger
+        .header__burger-close
+          +ui-svg('icon_burger_end')
+        a.header__logo.header__logo--burger(href='/')
+          img(src='../../images/icon_logo_blue.png', alt='')
+        .header__menu
+          each item in headerMenu
+            a.header__menu-item(href=item.link)
+              +ui-p2(item.name)
+        a.header__phone.header__phone--burger(href='tel:+74957660954')
+          +ui-p2('+7 (495) 766-09-54', '--bold')
+        .header__addr
+          +ui-p2('Проектируемый проезд 4062-й, 6с16, кабинет 18, г. Москва,115432.')
+      a.header__phone(href='tel:+74957660954')
+        .header__phone-icon
+          +ui-svg('icon_phone')
+        .text-m-none
+          +ui-p2('+7 (495) 766-09-54', '--bold')
+

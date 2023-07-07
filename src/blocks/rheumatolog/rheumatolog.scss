@@ -1,0 +1,29 @@
+.rheumatolog {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  @include media-laptop {
+    gap: 14px;
+  }
+  @include media-tablet {
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+  &__logo {
+    flex-shrink: 0;
+    width: 152px;
+    @include media-laptop {
+      width: 102px;
+    }
+  }
+  &__content {
+    max-width: 420px;
+    @include media-laptop {
+      max-width: 290px;
+    }
+    @include media-tablet {
+      text-align: center;
+    }
+  }
+}

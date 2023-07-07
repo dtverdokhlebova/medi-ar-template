@@ -1,0 +1,125 @@
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  @include media-laptop {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include media-tablet {
+    grid-template-columns: 1fr;
+  }
+}
+.events-slider {
+  &__ui-swiper-pagination {
+    margin-top: 40px;
+    @include media-laptop {
+      margin-top: 30px;
+    }
+  }
+  .ui-swiper-button {
+    transform: translateY(40px);
+    @include media-custom(1440px) {
+      transform: translateY(0);
+    }
+    @include media-tablet {
+      transform: translateY(-40px);
+    }
+    &--prev {
+      left: -50px;
+      @include media-custom(1440px) {
+        left: -20px;
+      }
+    }
+    &--next {
+      right: -50px;
+      @include media-custom(1440px) {
+        right: -20px;
+      }
+    }
+  }
+  .swiper {
+    overflow: visible;
+    &-slide {
+      height: auto;
+      opacity: 0;
+      transition: opacity 0.3s;
+      &-visible {
+        opacity: 1;
+      }
+    }
+  }
+}
+.events-item {
+  display: flex;
+  flex-direction: column;
+  &__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  &__date {
+    margin-bottom: 18px;
+    color: $blue;
+    @include media-tablet {
+      margin-bottom: 10px;
+    }
+  }
+  &__name {
+    margin-bottom: 10px;
+  }
+  &__text {
+    margin-bottom: 20px;
+    @include media-laptop {
+      margin-bottom: 16px;
+    }
+    @include media-tablet {
+      margin-bottom: 10px;
+    }
+  }
+  &__img {
+    position: relative;
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &--main {
+    background: #fff;
+    border: 1px solid $grey;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgb(0 0 0 / 0.05);
+    overflow: hidden;
+    .events-item {
+      &__content {
+        padding: 30px 30px 38px;
+        @include media-laptop {
+          padding: 20px 20px 25px;
+        }
+        @include media-tablet {
+          padding-bottom: 30px;
+        }
+      }
+      &__ui-button {
+        margin-top: auto;
+      }
+      &__img {
+        padding-top: 61.5%;
+      }
+    }
+  }
+  &--case {
+    .events-item {
+      &__img {
+        padding-top: 56.17%;
+        margin-bottom: 10px;
+        border-radius: 20px;
+        overflow: hidden;
+      }
+    }
+  }
+}

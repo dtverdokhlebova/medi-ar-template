@@ -1,0 +1,24 @@
+.ui-p1 {
+  font-size: 20px;
+  line-height: 1.1;
+  @include media-tablet {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+.ui-p2 {
+  font-size: 16px;
+  line-height: 1.375;
+}
+.ui-p3 {
+  font-size: 12px;
+  line-height: 1.5;
+}
+[class*='ui-p'] {
+  &[class*='--light'] {
+    font-weight: 300;
+  }
+  &[class*='--bold'] {
+    font-weight: 700;
+  }
+}

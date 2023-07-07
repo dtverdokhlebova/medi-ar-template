@@ -1,0 +1,11 @@
+.partners {
+  &__ui-swiper-pagination {
+    margin-top: 40px;
+    @include media-laptop {
+      margin-top: 30px;
+    }
+    @include media-tablet {
+      margin-top: 20px;
+    }
+  }
+}

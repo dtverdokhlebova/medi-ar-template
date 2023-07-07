@@ -1,0 +1,21 @@
+mixin why-we(mods)
+  -
+    const baseName = 'why-we'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .why-we(class=allMods)&attributes(attributes)
+    -for(let i=0; i<6; i++)
+      .why-we__item
+        .why-we__img
+          img(src='../../images/default.jpg', alt='')
+        .why-we__content
+          +ui-p2('Более 300 проведенных мероприятий от круглых столов и вебинаров до международных гибридных конгрессов')
+
+    block

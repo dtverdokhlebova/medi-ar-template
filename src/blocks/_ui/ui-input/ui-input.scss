@@ -1,0 +1,45 @@
+.ui-input {
+  position: relative;
+  font: 16px/1.25 $font;
+  input {
+    width: 100%;
+    padding: 14px 18px;
+    font: inherit;
+    background: transparent;
+    border: 1px solid #d9d9d9;
+    border-radius: 0;
+    outline: none;
+    transition: 0.3s;
+    &:focus {
+      border-color: $black;
+    }
+    &.filled,
+    &:focus {
+      border-color: $black;
+      ~ label {
+        opacity: 0;
+      }
+    }
+    &.parsley-error {
+      border-color: red;
+    }
+  }
+  label {
+    position: absolute;
+    top: 14px;
+    left: 18px;
+    font: inherit;
+    color: $grey80;
+    pointer-events: none;
+  }
+  .parsley-errors-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin: 4px 0 0;
+    padding: 0;
+    font: 12px/1 $font;
+    color: red;
+    list-style-type: none;
+  }
+}

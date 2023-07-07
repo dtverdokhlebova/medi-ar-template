@@ -1,0 +1,23 @@
+mixin about(mods)
+  -
+    const baseName = 'about'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .about(class=allMods)&attributes(attributes)
+    .about__img
+      img(src='../../images/about_img.jpg', alt='')
+    .about__content
+      +ui-h2('', 'about, --bold, --decor')
+        span.ui-h2__decor О нас
+      +ui-p2('', 'about')
+        b МедиАр
+        |  &nbsp;&mdash; это компания специалистов, с&nbsp;помощью которой ваши идеи превзойдут ожидания в&nbsp;готовом мероприятии. Благодаря накопленному многолетнему опыту и&nbsp;профессионализму мы&nbsp;можем гарантировать достойный уровень проведения мероприятия любой сложности&nbsp;&mdash; от&nbsp;вебинара до&nbsp;международного Конгресса.
+      +ui-button('Заказать мероприятие', 'about')(href='#' onclick=`window.openPopup('#popup-callback'); return false;`)
+    block

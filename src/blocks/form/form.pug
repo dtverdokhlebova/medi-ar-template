@@ -1,0 +1,26 @@
+mixin form(id, mods)
+  -
+    const baseName = 'form'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  // если form-thank не нужен, удалить его и убрать [data-success-target] у .form
+  form.form.js-form-validation(class=allMods action='#' data-success-target='thx')&attributes(attributes)
+    .form__row
+      +ui-input(`name${id}`, 'Ваше ФИО')(name='name' required)
+    .form__row
+      +ui-input(`email${id}`, 'E-mail')(type='email' name='email' required)
+    .form__row
+      +ui-input(`phone${id}`, 'Телефон')(name='phone' required data-parsley-phone data-mask='phone')
+    .form__row
+      +ui-button('Отправить', '--w100, --bold')
+    .form__row
+      +ui-p3('Нажимая кнопку «Отправить», Вы принимаете условия ')
+        a.text-link(href='#') Пользовательского соглашения
+    block

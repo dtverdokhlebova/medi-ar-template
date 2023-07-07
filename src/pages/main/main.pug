@@ -1,0 +1,50 @@
+extends ../../layout/layout
+
+block variables
+  -
+    const pageName = 'main'
+    const pageTitle = 'Main'
+
+block content
+  main.main
+    +banner
+    .page-content
+      +section
+        .inner
+          +about
+
+      +section
+        .inner
+          +section-head('--max-w610, --center').text-center
+            +ui-h2('', '--bold, --decor')
+              span.ui-h2__decor Почему
+              |  стоит обратиться именно к&nbsp;МедиАр?
+          +why-we
+
+      +section('--ov-hidden')
+        .inner
+          +section-head.text-center
+            +ui-h2('', '--bold, --decor')
+              span.ui-h2__decor Кейсы
+              |  компании Медиар
+          +events-slider
+
+      +section
+        .inner
+          +section-head.text-center
+            +ui-h2('', '--bold, --decor')
+              span.ui-h2__decor Наши
+              |  партнеры
+          +partners
+
+      +section('--mt-xxs')
+        .inner
+          +rheumatolog
+
+  +popup#popup-callback
+    div(data-success-parent)
+      +section-head('--max-w370, --center').text-center
+        +ui-h3('Обратный звонок', 'section-head, --bold, --decor')
+        +ui-p2('Оставьте свои контакты и&nbsp;наш специлист свяжется с&nbsp;вами в&nbsp;течении 15&nbsp;минут')
+      +form('Callback')
+    +form-thank

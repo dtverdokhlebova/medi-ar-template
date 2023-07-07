@@ -1,0 +1,81 @@
+.ui-h2 {
+  margin: 0;
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 1.25;
+  font-family: $fontMr;
+  @include media-laptop {
+    font-size: 35px;
+  }
+  @include media-tablet {
+    font-size: 26px;
+    line-height: 1.27;
+  }
+  &__decor {
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      top: -14px;
+      left: 0;
+      width: 88px;
+      height: 4px;
+      background: $brown;
+      @include media-laptop {
+        top: -12px;
+        width: 60px;
+        height: 2px;
+      }
+    }
+    &--center {
+      &::before {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+  &--decor {
+    padding-top: 14px;
+    @include media-laptop {
+      padding-top: 12px;
+    }
+  }
+}
+.ui-h3 {
+  margin: 0;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 1.33;
+  font-family: $fontMr;
+  @include media-laptop {
+    font-size: 20px;
+    line-height: 1.5;
+  }
+  @include media-tablet {
+    font-size: 18px;
+    line-height: 1.44;
+  }
+}
+.ui-h4 {
+  margin: 0;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 1.45;
+  font-family: $font;
+  @include media-laptop {
+    font-size: 20px;
+    line-height: 1.3;
+  }
+  @include media-tablet {
+    font-size: 18px;
+    line-height: 1.22;
+  }
+}
+[class*='ui-h'] {
+  &[class*='--light'] {
+    font-weight: 300;
+  }
+  &[class*='--bold'] {
+    font-weight: 700;
+  }
+}

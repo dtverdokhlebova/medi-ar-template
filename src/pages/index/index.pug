@@ -1,0 +1,17 @@
+extends ../../layout/layout
+
+block variables
+  -
+    const pageTitle = 'Index'
+
+block content
+  main.main
+    .page-content
+      .inner
+        +ui-h2(pageTitle)
+        br
+        br
+        a(href='main.html') Main
+        br
+        br
+        a(href='events.html') Events

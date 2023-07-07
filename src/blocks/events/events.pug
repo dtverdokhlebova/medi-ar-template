@@ -1,0 +1,67 @@
+mixin events-grid(mods)
+  -
+    const baseName = 'events-grid'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .events-grid(class=allMods)&attributes(attributes)
+    -for(let i=0; i<6; i++)
+      +events-item('main', '--main')
+    block
+
+mixin events-slider(mods)
+  -
+    const baseName = 'events-slider'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .events-slider(class=allMods)&attributes(attributes)
+    .swiper
+      .swiper-wrapper
+        -for(let i=0; i<6; i++)
+          +events-item('', '--case').swiper-slide
+      +ui-swiper-pagination('events-slider')
+      +ui-swiper-button(true, 'events-slider')
+      +ui-swiper-button(false, 'events-slider')
+    block
+
+mixin events-item(type, mods)
+  -
+    const baseName = 'events-item'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .events-item(class=allMods)&attributes(attributes)
+    .events-item__img
+      img(src='../../images/default.jpg', alt='')
+    .events-item__content
+      if type === 'main'
+        .events-item__date
+          +ui-p1('8 апреля', '--bold')
+      .events-item__name
+        +ui-p1('Название мероприятия возможно в несколько строк', '--bold')
+      if type === 'main'
+        .events-item__text
+          +ui-p2('Описание, что будет или было в данном обсуждении, кто спикер, краткое описание мероприятия')
+      if type === 'main'
+        +ui-button('Подробнее', 'events-item, --link')(href='#')
+      else
+        +ui-button('Подробнее', 'events-item, --link, --link-black')(href='#')

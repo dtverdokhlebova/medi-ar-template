@@ -1,0 +1,28 @@
+extends ../../layout/layout
+
+block variables
+  -
+    const pageName = 'events'
+    const pageTitle = 'Мероприятия'
+
+block content
+  main.main
+    .page-content.page-content--pt-xs
+      +section
+        .inner
+          +section-head.text-center
+            +ui-h2('', '--bold, --decor')
+              span.ui-h2__decor Мероприятия
+          +filter
+          +section('--mt-xxxs')
+            +events-grid
+
+      +section
+        .inner
+          div(data-success-parent)
+            +section-head('--max-w610, --center').text-center
+              +ui-h2('', 'section-head, --bold, --decor')
+                span.ui-h2__decor.ui-h2__decor--center Остались вопросы?
+              +ui-p1('Заполните форму ниже, и&nbsp;наш специалист свяжется с&nbsp;вами в&nbsp;ближайшее время')
+            +form('ContactUs')
+          +form-thank

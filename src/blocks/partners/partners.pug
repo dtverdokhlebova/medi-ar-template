@@ -1,0 +1,30 @@
+mixin partners(mods)
+  -
+    const baseName = 'partners'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  -
+    const partnersItems =[
+      'partners_biocad.png',
+      'partners_gilead.png',
+      'partners_phizer.png',
+      'partners_novartis.png',
+      'partners_abbvie.png',
+      'partners_lilly.png'
+    ]
+
+  .partners(class=allMods)&attributes(attributes)
+    .swiper
+      .swiper-wrapper
+        each item in partnersItems
+          .partners__item.swiper-slide
+            img(src=`../../images/${item}`, alt='')
+      +ui-swiper-pagination('partners')
+    block

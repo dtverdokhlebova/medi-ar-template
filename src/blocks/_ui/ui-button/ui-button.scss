@@ -1,0 +1,70 @@
+.ui-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 13px 58px 15px;
+  font: 16px/1.25 $font;
+  text-align: center;
+  text-transform: none;
+  text-decoration: none;
+  color: #fff;
+  background: $blue;
+  border: 1px solid $blue;
+  border-radius: 3px;
+  transition: 0.3s;
+  cursor: pointer;
+  @include media-tablet {
+    padding: 13px 24px 15px;
+  }
+  @include media-hover {
+    color: $blue;
+    background: #fff;
+  }
+  &__icon {
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+  }
+  &--w100 {
+    width: 100%;
+  }
+  &--px-xl {
+    padding-right: 78px;
+    padding-left: 78px;
+    @include media-laptop {
+      padding-right: 34px;
+      padding-left: 34px;
+    }
+  }
+  &--py-xs {
+    padding-top: 9px;
+    padding-bottom: 9px;
+  }
+  &--l-px-xs {
+    @include media-laptop {
+      padding-right: 32px;
+      padding-left: 32px;
+    }
+    @include media-tablet {
+      padding-right: 14px;
+      padding-left: 14px;
+    }
+  }
+  &--bold {
+    font-weight: 700;
+  }
+  &--link {
+    padding: 0;
+    text-align: inherit;
+    text-decoration: underline;
+    text-underline-position: under;
+    color: $blue;
+    background: none;
+    border: 0;
+    border-radius: 0;
+    &-black {
+      color: $black;
+    }
+  }
+}

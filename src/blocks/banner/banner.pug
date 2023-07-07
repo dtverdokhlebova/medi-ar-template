@@ -1,0 +1,21 @@
+mixin banner(mods)
+  -
+    const baseName = 'banner'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .banner(class=allMods)&attributes(attributes)
+    .inner.banner__inner
+      +ui-h2('', 'banner, --bold, --decor')
+        span.ui-h2__decor МедиАр
+      +ui-h4('организация и&nbsp;проведение бизнес-мероприятий любого формата.', 'banner')
+      +ui-button('Cвязаться с нами', 'banner, --px-xl, --bold')(href='#' onclick=`window.openPopup('#popup-callback'); return false;`)
+    .banner__img
+      img(src='../../images/banner_img.jpg', alt='')
+    block

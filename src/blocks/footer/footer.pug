@@ -1,0 +1,25 @@
+-
+  const footerMenu = [
+    { name: 'Главная', link: 'main.html' },
+    { name: 'О нас', link: '#' },
+    { name: 'Мероприятия', link: 'events.html' },
+    { name: 'Галерея', link: '#' },
+    { name: 'Контакты', link: '#' },
+  ]
+
+footer.footer
+  .inner
+    .footer__wrapper
+      a.footer__logo(href='/')
+        img(src='../../images/icon_logo_white.png', alt='')
+      .footer__menu
+        each item in footerMenu
+          .footer__menu-item
+            +ui-p2('')
+              a.text-link-inherit(href=item.link)=item.name
+      .footer__contacts
+        .footer__phone
+          +ui-p2('', '--bold')
+            a.text-link-inherit(href='tel:+74957660954') +7 (495) 766-09-54
+        .footer__addr
+          +ui-p2('Проектируемый проезд 4062-й, 6с16, кабинет&nbsp;18, г.&nbsp;Москва,115432.')
