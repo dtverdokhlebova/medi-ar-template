@@ -1,0 +1,27 @@
+mixin events-info(type, mods)
+  -
+    const baseName = 'events-info'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .events-info(class=allMods)&attributes(attributes)
+    .events-info__item
+      .events-info__name Дата проведения:
+      .events-info__val 5.07 — 7.07
+    .events-info__item
+      .events-info__name Онлайн площадка
+      .events-info__val
+        a(href='#') rheumatolog.ru
+    .events-info__item
+      a.events-info__link(href='#') Смотреть программу конгресса
+    .events-info__item(class=(type === 'button-hidden' && 'events-info__item--l-none'))
+      +ui-button('Регистрация', '--px-xxs, --bold')(href='#')
+    block
+
+    block

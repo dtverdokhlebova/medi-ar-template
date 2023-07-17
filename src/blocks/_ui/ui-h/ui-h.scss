@@ -55,6 +55,23 @@
     font-size: 18px;
     line-height: 1.44;
   }
+  &--d-xxs {
+    font-size: 22px;
+    @include media-laptop {
+      font-size: 26px;
+    }
+    @include media-tablet {
+      font-size: 20px;
+    }
+  }
+  &--l-xl {
+    @include media-laptop {
+      font-size: 26px;
+    }
+    @include media-tablet {
+      font-size: 20px;
+    }
+  }
 }
 .ui-h4 {
   margin: 0;
@@ -77,5 +94,48 @@
   }
   &[class*='--bold'] {
     font-weight: 700;
+  }
+  &[class*='--line-decor'] {
+    position: relative;
+    padding-top: 14px;
+    @include media-laptop {
+      padding-top: 12px;
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 88px;
+      height: 4px;
+      background: $brown;
+      @include media-laptop {
+        width: 60px;
+        height: 2px;
+      }
+    }
+    &[class*='--line-right-t-center'] {
+      &::before {
+        right: 0;
+        left: auto;
+        @include media-tablet {
+          right: auto;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+    }
+    &[class*='--line-d-none'] {
+      padding-top: 0;
+      @include media-laptop {
+        padding-top: 12px;
+      }
+      &::before {
+        display: none;
+        @include media-laptop {
+          display: block;
+        }
+      }
+    }
   }
 }

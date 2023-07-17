@@ -1,0 +1,45 @@
+mixin services(mods)
+  -
+    const baseName = 'services'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  -
+    const servicesItems =[
+      { img: 'logistics',
+        title: 'Организация логистики',
+        descr: 'Трансферы для&nbsp;участников мероприятия. Оформление билетов.',
+      },
+      { img: 'accommodation',
+        title: 'Размещение',
+        descr: 'Помощь и&nbsp;оформление размещения участников мероприятия. Подбор отелей. Групповое размещение.',
+      },
+      { img: 'catering',
+        title: 'Организация кейтеринга',
+        descr: 'Организация питания участников мероприятия(кофе-брейк, фуршет, банкет, гала-ужин)',
+      },
+      { img: 'technical',
+        title: 'Техническое обеспечение мероприятия',
+        descr: 'Техническое обеспечение &laquo;под ключ&raquo;. Включает в&nbsp;себя световое, звуковое оборудование, проектор и&nbsp;экран, а&nbsp;также любые Ваши пожелания по&nbsp;технической части.',
+      },
+      { img: 'pr_smm',
+        title: 'PR/SMM-Продвижение мероприятия',
+        descr: 'Команда МедиАр поможет Вам продвинуть мероприятия с&nbsp;помощью Социальных сетей',
+      },
+    ]
+
+  .services(class=allMods)&attributes(attributes)
+    each item, index in servicesItems
+      .services__item
+        .services__img
+          img.lazyload(data-src=`../../images/services_${item.img}.jpg` alt='' src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==")
+        .services__content
+          +ui-h4(item.title, 'services, --bold')
+          +ui-p2(item.descr, 'services')
+    block

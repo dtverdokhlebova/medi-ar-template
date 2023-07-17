@@ -1,0 +1,18 @@
+mixin priority(mods)
+  -
+    const baseName = 'priority'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .priority(class=allMods)&attributes(attributes)
+    .inner
+      .priority__content
+        +ui-h2('&laquo;Нашим Приоритетом Всегда Является Качество Проведенного Мероприятия, А&nbsp;Также Позитивный Отзыв Заказчика&raquo;', 'priority')
+        +ui-p2('Елена CEO МедиАр', 'priority')
+    block

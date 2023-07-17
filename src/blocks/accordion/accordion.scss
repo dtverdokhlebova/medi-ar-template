@@ -1,0 +1,42 @@
+.accordion {
+  &--col2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    @include media-tablet {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  }
+}
+.accordion-item {
+  background-color: #fff;
+  border-bottom: 2px solid $brown;
+  box-shadow: 0 0 10px 0 rgb(0 0 0 / 0.1);
+  &:not(:last-child) {
+    margin-bottom: 30px;
+  }
+  &__head {
+    position: relative;
+    padding: 25px 45px 25px 25px;
+    cursor: pointer;
+  }
+  &__icon {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    transition: 0.3s;
+  }
+  &__main {
+    display: none;
+    padding: 15px 25px 25px;
+  }
+  &--active {
+    .accordion-item__icon {
+      transform: translateY(-50%) rotate(180deg);
+    }
+  }
+}

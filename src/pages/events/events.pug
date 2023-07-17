@@ -5,6 +5,14 @@ block variables
     const pageName = 'events'
     const pageTitle = 'Мероприятия'
 
+  -
+    const filterData = {
+      inputTitle: 'Поиск по названию <span class="text-t-none">мероприятия</span>',
+      buttonText: 'Найти',
+      buttonMods: ', --l-px-xs',
+      datepickerTitle: 'Выбрать дату <span class="text-t-none">мероприятия</span>',
+    }
+
 block content
   main.main
     .page-content.page-content--pt-xs
@@ -13,16 +21,8 @@ block content
           +section-head.text-center
             +ui-h2('', '--bold, --decor')
               span.ui-h2__decor Мероприятия
-          +filter
+          +filter(filterData)
           +section('--mt-xxxs')
             +events-grid
 
-      +section
-        .inner
-          div(data-success-parent)
-            +section-head('--max-w610, --center').text-center
-              +ui-h2('', 'section-head, --bold, --decor')
-                span.ui-h2__decor.ui-h2__decor--center Остались вопросы?
-              +ui-p1('Заполните форму ниже, и&nbsp;наш специалист свяжется с&nbsp;вами в&nbsp;ближайшее время')
-            +form('ContactUs')
-          +form-thank
+      +include-contact-us

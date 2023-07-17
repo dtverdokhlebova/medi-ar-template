@@ -1,0 +1,25 @@
+extends ../../layout/layout
+
+block variables
+  -
+    const pageName = 'gallery'
+    const pageTitle = 'Галерея'
+
+block content
+  main.main
+    .page-content.page-content--pt-xs
+      +section
+        .inner
+          +section-head.text-blue.text-center
+            +ui-h2('Галерея мероприятий МедиАр', '--bold, --decor')
+          +section-head.text-blue.text-center
+            +ui-h3('Очные мероприятия', '--bold, --decor')
+          +gallery('gallery1')
+
+      +section
+        .inner
+          +section-head.text-blue.text-center
+            +ui-h3('Онлайн мероприятия', '--bold, --decor')
+          +gallery('gallery2', '', 'gallery__item--xxs')
+
+      +include-contact-us

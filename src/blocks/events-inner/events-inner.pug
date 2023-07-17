@@ -1,0 +1,101 @@
+mixin events-inner(type, mods)
+  -
+    const baseName = 'events-inner'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  -
+    const eventsOthersEventData ={
+      date: '8 апреля',
+      title: 'Название мероприятия возможно в несколько строк',
+      buttonText: 'Подробнее'
+    }
+
+  -
+    const eventsOthersArticleData ={
+      title: 'Название мероприятия возможно в несколько строк',
+      descr: 'Описание статьи в несколько строк с самой статьи',
+      buttonText: 'Читать'
+    }
+
+  -
+    const filterData = {
+      inputTitle: 'Поиск',
+      buttonMods: ', --px-xxxxs',
+      datepickerTitle: 'Выбрать дату',
+    }
+
+  .events-inner(class=allMods)&attributes(attributes)
+    .events-inner__content
+      +section-head('--mb-xs')
+        +ui-h3('Конгресс ревматологов, посвященный 100-летию со Дня рождения В. А. Насоновой', '--bold, --l-xl, --line-decor')
+      if type === 'events-inner'
+        p по макету
+        +events-info('button-hidden', 'events-inner')
+        p если кнопка нужна на адаптиве (не по макету)
+        +events-info('', 'events-inner')
+      +text-vnll
+        img(src='../../images/default.jpg', alt='')
+        h3 h3 - Конгресс проводится Общероссийской общественной организацией
+        h4 h4 - Конгресс проводится Общероссийской общественной организацией
+        p p - Конгресс проводится Общероссийской общественной организацией «Ассоциация ревматологов России» при поддержке Федерального государственного бюджетного научного учреждения «Научно-исследовательский институт ревматологии им. В.А. Насоновой», Российской академии наук, а также Общероссийской общественной организацией «Общество врачей России» в рамках Программы непрерывного последипломного медицинского образования по специальности «ревматология».
+        p ОТКРЫТА ПРЕДВАРИТЕЛЬНАЯ РЕГИСТРАЦИЯ НА ОЧНОЕ УЧАСТИЕ ВНИЗУ СТРАНИЦЫ. ОТКРЫТА ПОДАЧА ТЕЗИСОВ — СРОК ДО 10 ИЮНЯ 2023Г.
+        p
+          b Информация по НМО:
+        p
+          b Регистрация на стойке регистрации на Конгресс. Контроль уход-приход участника осуществляется сотрудниками технического организатора, перед входом и выходом в зал.
+        p Конгресс будет посвящен современным достижениям в изучении диагностики и лечения аутоиммунных и аутовоспалительных ревматических заболеваний у взрослых и детей, таких как ревматоидный артрит, анкилозирующий спондилит, псориатический артрит, системные заболевания соединительной ткани, ювенильный идиопатический артрит, подагра, остеоартрит и другие ревматические заболевания.
+        p Особое внимание будет уделено обсуждению значения механизмов аутоиммунитета и аутовоспаления для других медицинских специальностей- терапии, дерматологии, кардиологии, неврологии, нефрологии, эндокринологии, гастроэнтерологии, педиатрии. В Конгрессе примут участие ведущие специалисты в области ревматологии Российской Федерации, стран ближнего зарубежья и Западной Европы.
+        p Программа включает симпозиумы, лекции, научные сессии и пленарные заседания с интерактивным голосованием слушателей, выставку фармацевтических компаний.
+        p Участниками конгресса могут стать ревматологи, дерматологи, терапевты, гастроэнтерологи, неврологи, педиатры, эндокринологи и другие специалисты практического здравоохранения вне зависимости от возраста и стажа работы, ординаторы и аспиранты, научные сотрудники.
+
+      if type === 'events-inner'
+        .events-inner__links
+          +ui-button('', '--link, --bold')(href='#')
+            .ui-button__icon.ui-button__icon--xs
+              +ui-svg('icon_arrow_down_circle')
+            .ui-button__text Информационное письмо
+          +ui-button('', '--link, --bold')(href='#')
+            .ui-button__icon.ui-button__icon--xs
+              +ui-svg('icon_arrow_down_circle')
+            .ui-button__text Каталог
+      else
+        .events-inner__nav
+          +ui-button('', '--link')(href='#')
+            .ui-button__icon.ui-button__icon--xs
+              +ui-svg('icon_arrow_left')
+            .ui-button__text Предыдущая статья
+          +ui-button('', '--link, --right')(href='#')
+            .ui-button__text Следующая статья
+            .ui-button__icon.ui-button__icon--xs
+              +ui-svg('icon_arrow_right')
+
+      if type === 'events-inner'
+        +section('--mt-xs')
+          +section-head('--mb-xs')
+            +ui-h3('Наши спонсоры', '--l-xl, --bold')
+          +partnership
+
+        +section('--mt-xs')
+          +section-head('--mb-xs')
+            +ui-h3('Наши партнеры', '--l-xl, --bold')
+          +partnership
+
+        +section('--mt-xs')
+          +section-head('--mb-xs')
+            +ui-h3('Организаторы', '--l-xl, --bold')
+          +partnership
+
+    .events-inner__aside
+      if type === 'events-inner'
+        +filter(filterData, 'events-inner, --events-inner')
+      +section-head('--mb-xxs')
+        +ui-h3(( type === 'events-inner' ? 'Другие мероприятия' : 'Другие статьи'), '--d-xxs, --bold, --line-decor, --line-d-none')
+      +events-others((type === 'events-inner' ? eventsOthersEventData : eventsOthersArticleData))
+    block

@@ -1,0 +1,26 @@
+mixin events-others(eventsOthersData, mods)
+  -
+    const baseName = 'events-others'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .events-others(class=allMods)&attributes(attributes)
+    -for(let i=0; i<6; i++)
+      .events-others__item
+        if eventsOthersData.date
+          .events-others__date !{eventsOthersData.date}
+        .events-others__text
+          +ui-p2(eventsOthersData.title, 'events-others, --bold')
+          if eventsOthersData.descr
+            +ui-p2(eventsOthersData.descr, 'events-others').text-grey80
+        +ui-button('', '--link, --fz-s')(href='#')
+          .ui-button__text !{eventsOthersData.buttonText}
+          .ui-button__icon.ui-button__icon--xxs
+            +ui-svg('icon_arrow_right')
+    block

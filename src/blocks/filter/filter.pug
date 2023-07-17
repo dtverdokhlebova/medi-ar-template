@@ -1,4 +1,4 @@
-mixin filter(mods)
+mixin filter(data, mods)
   -
     const baseName = 'filter'
     let allMods = ''
@@ -11,6 +11,6 @@ mixin filter(mods)
     }
 
   .filter(class=allMods)&attributes(attributes)
-    +search('filter')
-    +ui-datepicker('Выбрать дату <span class="text-t-none">мероприятия</span>', 'filter')(data-active-dates="2023-07-01, 2023-07-05, 2023-07-10")
+    +search(data, 'filter')
+    +ui-datepicker(data.datepickerTitle, 'filter')(data-active-dates="2023-07-01, 2023-07-05, 2023-07-10")
     block

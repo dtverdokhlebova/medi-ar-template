@@ -1,0 +1,49 @@
+mixin accordion(mods)
+  -
+    const baseName = 'accordion'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .accordion(class=allMods)&attributes(attributes)
+    block
+
+mixin accordion-column(mods)
+  -
+    const baseName = 'accordion-column'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .accordion-column(class=allMods)&attributes(attributes)
+    block
+
+mixin accordion-item(head, mods)
+  -
+    const baseName = 'accordion-item'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .accordion-item(class=allMods)&attributes(attributes)
+    .accordion-item__head
+      +ui-p1(head)
+      .accordion-item__icon
+        +ui-svg('icon_arrow_down_circle')
+    .accordion-item__main
+      block

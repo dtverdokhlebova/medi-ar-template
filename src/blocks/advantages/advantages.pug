@@ -1,0 +1,33 @@
+mixin advantages(mods)
+  -
+    const baseName = 'advantages'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  -
+    const advantagesItems =[
+      { title: 'Профессионализм',
+        descr: 'Наши специалисты имеют огромный опыт в&nbsp;организации мероприятий, менеджменте ассоциаций.',
+      },
+      { title: 'Многозадачность',
+        descr: 'Компания «МедиАр» обеспечивает бесперебойную обработку задач разного профиля.',
+      },
+      { title: 'Креатив',
+        descr: 'Мы&nbsp;всегда предлагаем разные варианты и&nbsp;форматы мероприятий.',
+      },
+    ]
+
+  .advantages(class=allMods)&attributes(attributes)
+    each item, index in advantagesItems
+      .advantages__item
+        .advantages__count 0
+          =(index+1)
+        +ui-h4(item.title, 'advantages')
+        +ui-p2(item.descr, 'advantages')
+    block

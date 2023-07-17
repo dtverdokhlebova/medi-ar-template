@@ -1,0 +1,10 @@
+mixin include-contact-us
+  +section
+    .inner
+      div(data-success-parent)
+        +section-head('--max-w610, --center').text-center
+          +ui-h2('', 'section-head, --bold, --decor')
+            span.ui-h2__decor.ui-h2__decor--center Остались вопросы?
+          +ui-p1('Заполните форму ниже, и&nbsp;наш специалист свяжется с&nbsp;вами в&nbsp;ближайшее время')
+        +form('ContactUs')
+      +form-thank

@@ -1,0 +1,40 @@
+mixin contacts(type, mods)
+  -
+    const baseName = 'contacts'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .contacts(class=allMods)&attributes(attributes)
+    .contacts__map
+      <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" title="Москва, Portplaza" aria-label="Москва, Portplaza" src="https://maps.google.com/maps?q=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C%20Portplaza&amp;t=m&amp;z=14&amp;output=embed&amp;iwloc=near"></iframe>
+    div(class = (type === 'block' ? 'contacts__content' : 'inner'))
+      .contacts__wrapper
+        .contacts__item
+          +ui-h4('Адрес', 'contacts, --bold')
+          +ui-p2('', 'contacts')
+            p Проектируемый проезд 4062-й, 6с16, кабинет&nbsp;18, г.&nbsp;Москва, 115432.
+        .contacts__item
+          +ui-h4('Часы работы', 'contacts, --bold')
+          +ui-p2('', 'contacts')
+            p 10.00 — 20.00
+            p Понедельник — Пятница
+        .contacts__item
+          +ui-h4('Контакты', 'contacts, --bold')
+          +ui-p2('', 'contacts')
+            p Email:
+              =' '
+              a(href='mailto:kazakova_ele@mail.ru') kazakova_ele@mail.ru
+            p
+              a(href='#') alexey@mediar.info
+            p
+              a(href='tel:+74957660954') +74957660954
+        .contacts__item.contacts__item--socials
+          if type === 'block'
+            +ui-h4('Подписывайтесь', 'contacts, --bold')
+          +socials('contacts')

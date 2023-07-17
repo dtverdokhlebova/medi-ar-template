@@ -1,0 +1,107 @@
+.our-work {
+  &__main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    @include media-tablet {
+      grid-template-columns: 1fr;
+    }
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+  }
+  &__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 25px;
+    text-align: right;
+    @include media-tablet {
+      order: -1;
+      padding: 0 0 25px;
+      text-align: center;
+    }
+  }
+  &__ui-h3 {
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
+  }
+  &__gallery {
+    display: grid;
+    grid-template-columns: repeat(24, 1fr);
+    gap: 30px;
+    @include media-laptop {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    &-item {
+      position: relative;
+      display: block;
+      overflow: hidden;
+      &--w50 {
+        grid-column: span 12;
+        padding-top: 56%;
+      }
+      &--w40 {
+        grid-column: span 10;
+        padding-top: 52%;
+      }
+      &--w33 {
+        grid-column: span 8;
+        padding-top: 54%;
+      }
+      &--w30 {
+        grid-column: span 7;
+        padding-top: 52%;
+      }
+      &--l-w100 {
+        @include media-laptop {
+          grid-column: 1/-1;
+          padding-top: 58%;
+        }
+      }
+      &--l-w50 {
+        @include media-laptop {
+          grid-column: unset;
+          padding-top: 74%;
+        }
+      }
+      &--t-w100 {
+        @include media-tablet {
+          grid-column: 1/-1;
+          padding-top: 58%;
+        }
+      }
+      &:hover {
+        .our-work__gallery-content {
+          opacity: 1;
+          @include media-tablet {
+            opacity: 0;
+          }
+        }
+      }
+    }
+    &-img {
+      position: absolute;
+      inset: 0;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    &-content {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      color: #fff;
+      background-color: rgb(3 53 55 / 0.7);
+      opacity: 0;
+      transition: 0.5s;
+    }
+  }
+}

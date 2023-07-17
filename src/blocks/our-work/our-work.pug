@@ -1,0 +1,42 @@
+mixin our-work(mods)
+  -
+    const baseName = 'our-work'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  -
+    const galleryItems =[
+      { mods: 'our-work__gallery-item--w50 our-work__gallery-item--l-w50 our-work__gallery-item--t-w100', img: 'our_work_gallery_1.jpg' },
+      { mods: 'our-work__gallery-item--w50 our-work__gallery-item--l-w50 our-work__gallery-item--t-w100', img: 'our_work_gallery_2.jpg' },
+      { mods: 'our-work__gallery-item--w40 our-work__gallery-item--l-w50 our-work__gallery-item--t-w100', img: 'our_work_gallery_3.png' },
+      { mods: 'our-work__gallery-item--w30 our-work__gallery-item--l-w50', img: 'our_work_gallery_4.jpg' },
+      { mods: 'our-work__gallery-item--w30 our-work__gallery-item--l-w50', img: 'our_work_gallery_5.jpg' },
+      { mods: 'our-work__gallery-item--w33 our-work__gallery-item--l-w50 our-work__gallery-item--t-w100', img: 'our_work_gallery_6.jpg' },
+      { mods: 'our-work__gallery-item--w33 our-work__gallery-item--l-w50 our-work__gallery-item--t-w100', img: 'our_work_gallery_7.jpg' },
+      { mods: 'our-work__gallery-item--w33 our-work__gallery-item--l-w50 our-work__gallery-item--t-w100', img: 'our_work_gallery_8.png' },
+    ]
+
+  .our-work(class=allMods)&attributes(attributes)
+    .our-work__main
+      .our-work__img
+        img.lazyload(data-src='../../images/our_work_img.jpg' alt='' src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==")
+      .our-work__text
+        +ui-h3('Примеры наших работ', 'our-work, --bold, --line-decor, --line-right-t-center')
+        +ui-p2('Предлагаем Вам ознакомиться с&nbsp;фотогалереей мероприятий, проведенных компанией &laquo;МедиАр&raquo;', 'our-work')
+    .our-work__gallery
+      each item in galleryItems
+        a.our-work__gallery-item.scroll-animate(class=item.mods href=`/images/${item.img}` data-fancybox='our-work-gallery' data-caption=`ВЕРСИИ И КОНТРОВЕРСИИ ВЕДЕНИЯ ПАЦИЕНТОВ С ПСОРИАТИЧЕСКИМ АРТРИТОМ: МЕЖДИСЦИПЛИНАРНЫЕ ДЕБАТЫ`)
+          .our-work__gallery-img
+            img.lazyload(data-src=`../../images/${item.img}` alt='' src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==")
+          .our-work__gallery-content
+            +ui-p1('')
+              | ВЕРСИИ И КОНТРОВЕРСИИ ВЕДЕНИЯ ПАЦИЕНТОВ С ПСОРИАТИЧЕСКИМ АРТРИТОМ: МЕЖДИСЦИПЛИНАРНЫЕ ДЕБАТЫ
+    +section('--mt-xxxs', true).text-center
+      +ui-button('Полный список мероприятий', '--px-xxs')(href='#')
+    block

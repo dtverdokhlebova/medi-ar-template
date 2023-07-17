@@ -1,0 +1,42 @@
+.cookies {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 80;
+  width: 100%;
+  padding: 25px 0;
+  color: #fff;
+  background-color: rgb(50 50 58 / 1);
+  &__wrapper {
+    position: relative;
+    padding: 0 40px;
+    text-align: center;
+    @include media-laptop {
+      padding: 40px 0 0;
+    }
+  }
+  &__ui-p2 {
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
+  }
+  &__close {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    background-color: transparent;
+    background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 3L27 27M3 27L27 3' stroke='%23ffffff'/%3E%3C/svg%3E%0A");
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: 0;
+    cursor: pointer;
+    @include media-laptop {
+      top: 0;
+      transform: none;
+    }
+  }
+}

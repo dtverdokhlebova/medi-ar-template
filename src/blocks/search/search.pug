@@ -1,4 +1,4 @@
-mixin search(mods)
+mixin search(data, mods)
   -
     const baseName = 'search'
     let allMods = ''
@@ -11,9 +11,10 @@ mixin search(mods)
     }
 
   .search(class=allMods)&attributes(attributes)
-    +ui-input(`search`, 'Поиск по названию <span class="text-t-none">мероприятия</span>', 'search')(name='search')
-    +ui-button('', 'search, --py-xs, --l-px-xs, --bold')
+    +ui-input(`search`, data.inputTitle, 'search')(name='search')
+    +ui-button('', `search, --py-xs, --bold ${data.buttonMods}`)
       .ui-button__icon
         +ui-svg('icon_search')
-      .ui-button__text.text-m-none Найти
+      if data.buttonText
+        .ui-button__text.text-m-none !{data.buttonText}
     block

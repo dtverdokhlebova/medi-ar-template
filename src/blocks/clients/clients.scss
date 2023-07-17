@@ -1,0 +1,31 @@
+.clients {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  @include media-tablet {
+    grid-template-columns: 1fr;
+  }
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    background-color: #efefef;
+    overflow: hidden;
+    @include media-hover {
+      .clients__img {
+        transform: scale(1.1);
+      }
+    }
+  }
+  &__img {
+    max-width: 40%;
+    transition: 0.3s;
+    @include media-laptop {
+      max-width: 65%;
+    }
+    @include media-tablet {
+      max-width: min(150px, 55%);
+    }
+  }
+}

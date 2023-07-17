@@ -1,0 +1,20 @@
+mixin cookies(mods)
+  -
+    const baseName = 'cookies'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .cookies(class=allMods)&attributes(attributes)
+    .inner
+      .cookies__wrapper
+        +ui-p2('', 'cookies')
+          | Мы&nbsp;используем cookie-файлы, чтобы получить статистику, которая помогает нам улучшить сервис для Вас с&nbsp;целью персонализации сервисов и&nbsp;предложений. Продолжая пользоваться сайтом без изменения настроек, вы&nbsp;даёте согласие на&nbsp;использование ваших cookie-файлов.
+        +ui-button('Ok', '--px-xxs').js-cookies-close
+        button.cookies__close.js-cookies-close
+    block

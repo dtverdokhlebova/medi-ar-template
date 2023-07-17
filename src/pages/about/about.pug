@@ -1,0 +1,75 @@
+extends ../../layout/layout
+
+block variables
+  -
+    const pageName = 'about'
+    const pageTitle = 'О нас'
+
+block content
+  main.main
+    .page-content.page-content--pt-xs
+      +section
+        .inner
+          +about-company
+
+      +section
+        .inner
+          +section-head.text-center
+            +ui-h2('', '--bold, --decor')
+              span.ui-h2__decor Услуги
+          +services
+
+      +section
+        .inner
+          +section-head.text-center
+            +ui-h2('', '--bold, --decor')
+              span.ui-h2__decor Наши
+              |  Клиенты
+          +clients
+
+      +section
+        .inner
+          +section-head.text-center
+            +ui-h2('', '--bold, --decor')
+              span.ui-h2__decor Работа
+              |  По&nbsp;Ключевым Городам&nbsp;РФ
+          +cities
+
+      +section
+        .inner
+          +advantages
+
+      +section
+        +priority
+
+      +section
+        .inner
+          +our-work
+
+      +section
+        .inner
+          +section-head.text-center
+            +ui-h2('Вопросы И Ответы', '--bold')
+          +accordion('--col2')
+            +accordion-column
+              +accordion-item('За Какой Промежуток Времени Вы Организовываете Мероприятия "Под&nbsp;Ключ"?')
+                +ui-p2('Все детали обсуждаются с&nbsp;заказчиком индивидуально, сроки зависят от&nbsp;технического задания.')
+              +accordion-item('С Какими Компаниями Вы Работаете?')
+                +ui-p2('Мы&nbsp;работаем с&nbsp;B2B сектором во&nbsp;всех отраслях.')
+              +accordion-item('Где Можно Посмотреть Информацию О&nbsp;Проведенных Мероприятиях?')
+                +ui-p2('Информация о&nbsp;мероприятиях есть в&nbsp;разделе &laquo;Мероприятия&raquo; на&nbsp;нашем сайте.')
+            +accordion-column
+              +accordion-item('Как Мне Связаться С&nbsp;Вами?')
+                +ui-p2('Связаться с&nbsp;нами можно через форму обратной связи на&nbsp;сайте или&nbsp;через почту ')
+                  a(href='mailto:alexey@mediar.info') alexey@mediar.info
+              +accordion-item('Можете Ли&nbsp;Вы&nbsp;Помочь С&nbsp;Графическим Оформлением Мероприятия?')
+                +ui-p2('Можем. В&nbsp;нашей компании работают дизайнеры с&nbsp;огромным опытом в&nbsp;данной сфере.')
+              +accordion-item('В Каких Городах Вы Работаете?')
+                +ui-p2('Мы&nbsp;работаем по&nbsp;всем субъектам Российской Федерации и&nbsp;странам СНГ.')
+      +section
+        .inner
+          +section-head.text-center
+            +ui-h2('Контакты', '--bold')
+          +contacts('block', '--block')
+
+      +include-contact-us

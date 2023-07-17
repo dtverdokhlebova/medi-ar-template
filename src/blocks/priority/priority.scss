@@ -1,0 +1,42 @@
+.priority {
+  position: relative;
+  background-image: url('../images/priority_bg.jpg');
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  @include media-tablet {
+    background-attachment: unset;
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: #16163f;
+    opacity: 0.8;
+  }
+  &__content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 700px;
+    min-height: 530px;
+    margin: 0 auto;
+    padding: 50px 0;
+    color: #fff;
+    text-align: center;
+    @include media-tablet {
+      min-height: 350px;
+      padding: 30px 0;
+    }
+  }
+  &__ui-h2 {
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+  &__ui-p2 {
+    color: $grey80;
+  }
+}

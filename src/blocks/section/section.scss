@@ -18,6 +18,14 @@
       margin-top: 60px;
     }
   }
+  &--mt-xs {
+    &:not(:first-child) {
+      margin-top: 80px;
+      @include media-laptop {
+        margin-top: 60px;
+      }
+    }
+  }
   &--ov-hidden {
     overflow: hidden;
   }
@@ -52,5 +60,14 @@
   &--center {
     margin-right: auto;
     margin-left: auto;
+  }
+  &--mb-xs {
+    margin-bottom: 30px;
+    @include media-laptop {
+      margin-bottom: 20px;
+    }
+  }
+  &--mb-xxs {
+    margin-bottom: 20px;
   }
 }

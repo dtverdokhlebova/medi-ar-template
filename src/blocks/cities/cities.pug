@@ -1,0 +1,35 @@
+mixin cities(mods)
+  -
+    const baseName = 'cities'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  -
+    const citiesItems =[
+      { title: 'Москва', img: 'cities_img_moscow.jpg' },
+      { title: 'Санкт-Петербург', img: 'cities_img_spb.jpg' },
+      { title: 'Новосибирск', img: 'cities_img_novosibirsk.png' },
+      { title: 'Казань', img: 'cities_img_kazan.jpg' },
+      { title: 'Сочи', img: 'cities_img_sochi.jpg' },
+    ]
+
+  .cities(class=allMods)&attributes(attributes)
+    .swiper
+      .swiper-wrapper
+        each item in citiesItems
+          .cities__item.swiper-slide
+            .cities__img
+              img.lazyload(data-src=`../../images/${item.img}` alt='' src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==")
+            .cities__text
+              +ui-p2(item.title)
+      +ui-swiper-pagination('cities')
+      +ui-swiper-button(true, 'cities')
+      +ui-swiper-button(false, 'cities')
+
+    block

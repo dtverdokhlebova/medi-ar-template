@@ -1,0 +1,31 @@
+.events-others {
+  display: grid;
+  gap: 10px 20px;
+  @include media-laptop {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include media-tablet {
+    grid-template-columns: 1fr;
+  }
+  &__item {
+    padding: 20px;
+    background: #fff;
+    border: 1px solid $grey;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgb(0 0 0 / 0.05);
+  }
+  &__date {
+    margin-bottom: 6px;
+    font-weight: 700;
+    font-size: 14px;
+    color: $blue;
+  }
+  &__text {
+    margin-bottom: 10px;
+  }
+  &__ui-p2 {
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+}

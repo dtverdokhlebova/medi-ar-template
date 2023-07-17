@@ -1,0 +1,14 @@
+extends ../../layout/layout
+
+block variables
+  -
+    const pageName = 'contacts'
+    const pageTitle = 'Контакты'
+
+block content
+  main.main
+    .page-content.page-content--pt-xs
+      +section('--ov-hidden')
+        +contacts
+
+      +include-contact-us

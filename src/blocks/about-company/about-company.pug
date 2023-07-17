@@ -1,0 +1,26 @@
+mixin about-company(mods)
+  -
+    const baseName = 'about-company'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .about-company(class=allMods)&attributes(attributes)
+    .about-company__pictures
+      .about-company__img
+        img(src='../../images/about_company_img1.jpg', alt='')
+      .about-company__img
+        img(src='../../images/about_company_img2.jpg', alt='')
+    .about-company__content
+      +ui-p1('О Компании', 'about-company')
+      +ui-h2('', 'about-company, --bold, --decor')
+        span.ui-h2__decor Медиар
+      +ui-p2('', 'about-company')
+        p Компания МедиАр была основана в&nbsp;2018&nbsp;году. Основной профиль компании&nbsp;&mdash; организация B2B мероприятий различных уровней от&nbsp;Региональных до&nbsp;Федеральных. Мы&nbsp;работаем с&nbsp;разными форматами&nbsp;&mdash; очные мероприятия, онлайн, а&nbsp;также гибридный формат.
+        p МедиАр&nbsp;&mdash; успешно зарекомендовавшая компания, с&nbsp;2018 года мы&nbsp;провели более 200 мероприятий
+    block

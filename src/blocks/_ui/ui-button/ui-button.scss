@@ -25,9 +25,29 @@
     flex-shrink: 0;
     width: 30px;
     height: 30px;
+    &--xs {
+      width: 21px;
+      height: 21px;
+    }
+    &--xxs {
+      width: 16px;
+      height: 16px;
+    }
   }
   &--w100 {
     width: 100%;
+  }
+  &--px-xxxxs {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+  &--px-xxs {
+    padding-right: 44px;
+    padding-left: 44px;
+    @include media-tablet {
+      padding-right: 24px;
+      padding-left: 24px;
+    }
   }
   &--px-xl {
     padding-right: 78px;
@@ -54,17 +74,23 @@
   &--bold {
     font-weight: 700;
   }
+  &--fz-s {
+    font-size: 14px;
+  }
   &--link {
     padding: 0;
     text-align: inherit;
     text-decoration: underline;
-    text-underline-position: under;
+    text-underline-offset: 0.1875em;
     color: $blue;
     background: none;
     border: 0;
     border-radius: 0;
     &-black {
       color: $black;
+    }
+    &.ui-button--right {
+      text-align: right;
     }
   }
 }
