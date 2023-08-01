@@ -2,6 +2,7 @@ import '../styles/style.scss'
 import uiDatepicker from '../blocks/_ui/ui-datepicker/ui-datepicker'
 import uiInput from '../blocks/_ui/ui-input/ui-input'
 import accordion from '../blocks/accordion/accordion'
+import banner from '../blocks/banner/banner'
 import cities from '../blocks/cities/cities'
 import cookies from '../blocks/cookies/cookies'
 import header from '../blocks/header/header'
@@ -14,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
   uiDatepicker()
   uiInput()
   accordion()
+  banner()
   cities()
   cookies()
   header()

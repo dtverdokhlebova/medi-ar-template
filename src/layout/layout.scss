@@ -3,7 +3,8 @@
 }
 *,
 *::before,
-*::after {
+*::after,
+.swiper-wrapper {
   box-sizing: inherit;
 }
 *:focus {

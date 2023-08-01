@@ -15,10 +15,14 @@
       min-height: 506px;
     }
     @include media-tablet {
-      justify-content: flex-start;
       align-items: center;
       text-align: center;
     }
+  }
+  &__content {
+    opacity: 0;
+    transform: translate3d(0, 50%, 0);
+    transition: 1.25s;
   }
   &__ui-h2 {
     max-width: 520px;
@@ -62,6 +66,18 @@
       height: 100%;
       object-fit: cover;
       object-position: 50% 80%;
+    }
+  }
+  &__ui-swiper-pagination {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+  }
+  .swiper-slide-active {
+    .banner__content {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
     }
   }
 }

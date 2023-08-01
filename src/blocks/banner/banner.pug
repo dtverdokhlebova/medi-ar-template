@@ -11,11 +11,17 @@ mixin banner(mods)
     }
 
   .banner(class=allMods)&attributes(attributes)
-    .inner.banner__inner
-      +ui-h2('', 'banner, --bold, --decor')
-        span.ui-h2__decor МедиАр
-      +ui-h4('организация и&nbsp;проведение бизнес-мероприятий любого формата.', 'banner')
-      +ui-button('Cвязаться с нами', 'banner, --px-xl, --bold')(href='#' onclick=`window.openPopup('#popup-callback'); return false;`)
-    .banner__img
-      img(src='../../images/banner_img.jpg', alt='')
+    .swiper
+      .swiper-wrapper
+        -for(let i=1; i<4; i++)
+          .banner__slide.swiper-slide
+            .inner.banner__inner
+              .banner__content
+                +ui-h2('', 'banner, --bold, --decor')
+                  span.ui-h2__decor МедиАр !{i}
+                +ui-h4('организация и&nbsp;проведение бизнес-мероприятий любого формата.', 'banner')
+                +ui-button('Cвязаться с нами', 'banner, --px-xl, --bold')(href='#' onclick=`window.openPopup('#popup-callback'); return false;`)
+            .banner__img
+              img(src='../../images/banner_img.jpg', alt='')
+      +ui-swiper-pagination('banner')
     block

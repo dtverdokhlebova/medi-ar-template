@@ -21,7 +21,7 @@ header.header
           img(src='../../images/icon_logo_blue.png', alt='')
         .header__menu
           each item in headerMenu
-            a.header__menu-item(href=item.link)
+            a.header__menu-item(class=(pageName === item.link && 'active') href=item.link)
               +ui-p2(item.name)
         a.header__phone.header__phone--burger(href='tel:+74957660954')
           +ui-p2('+7 (495) 766-09-54', '--bold')
